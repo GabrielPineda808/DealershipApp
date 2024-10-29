@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dealership {
-    private static String name;
-    private static String address;
-    private static   String phone;
+    private String name;
+    private String address;
+    private String phone;
 
-   private static ArrayList<Vehicle> inventory = new ArrayList<>();
+   private ArrayList<Vehicle> inventory = new ArrayList<>();
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
@@ -16,63 +16,67 @@ public class Dealership {
         this.phone = phone;
     }
 
-    public static String getName() {
+    public ArrayList<Vehicle> getInventory() {
+        return inventory;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public static void setName(String name) {
-        Dealership.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static String getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public static void setAddress(String address) {
-        Dealership.address = address;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public static String getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public static void setPhone(String phone) {
-        Dealership.phone = phone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public static List<Vehicle> getVehiclesByPrice(double min, double max){
+    public List<Vehicle> getVehiclesByPrice(double min, double max){
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model){
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByYear(int min, int max){
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByColor(String color){
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByMileage(int min, int max){
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByType(String vehicleType){
+        return null;
+    }
+
+    public List<Vehicle> getAllVehicles(){
         return inventory;
     }
 
-    public static List<Vehicle> getVehiclesByMakeModel(String make, String model){
-        return inventory;
+    public void addVehicle(Vehicle vehicle){
+       inventory.add(vehicle);
     }
 
-    public static List<Vehicle> getVehiclesByYear(int min, int max){
-        return inventory;
-    }
-
-    public static List<Vehicle> getVehiclesByColor(String color){
-        return inventory;
-    }
-
-    public static List<Vehicle> getVehiclesByMileage(int min, int max){
-        return inventory;
-    }
-
-    public static List<Vehicle> getVehiclesByType(String vehicleType){
-        return inventory;
-    }
-
-    public static List<Vehicle> getAllVehicles(){
-        return inventory;
-    }
-
-    public static void addVehicle(Vehicle vehicle){
-
-    }
-
-    public static void removeVehicle(Vehicle vehicle){
+    public void removeVehicle(Vehicle vehicle){
 
     }
 
