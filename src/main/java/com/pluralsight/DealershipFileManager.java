@@ -23,6 +23,7 @@ public class DealershipFileManager {
                 Vehicle vehicle = new Vehicle(Integer.parseInt(data[0]),Integer.parseInt(data[1]),data[2],data[3],data[4],data[5],Integer.parseInt(data[6]), Double.parseDouble(data[7]));
                 dealership.addVehicle(vehicle);
             }
+            br.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -37,6 +38,7 @@ public class DealershipFileManager {
             for( Vehicle v : dealership.getInventory()){
                 bw.write(v.getVin() +"|"+ v.getYear()+"|"+v.getMake()+"|"+v.getModel()+"|"+ v.getVehicleType()+"|"+v.getColor()+"|"+v.getOdometer()+"|"+v.getPrice());
             }
+            bw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
