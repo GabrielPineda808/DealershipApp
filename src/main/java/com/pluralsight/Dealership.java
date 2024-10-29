@@ -1,18 +1,43 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dealership {
-    private String name;
-    private String address;
-    private  String phone;
+    private static String name;
+    private static String address;
+    private static   String phone;
 
-    static List<Vehicle> inventory;
+   private static ArrayList<Vehicle> inventory = new ArrayList<>();
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
+    }
+
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        Dealership.name = name;
+    }
+
+    public static String getAddress() {
+        return address;
+    }
+
+    public static void setAddress(String address) {
+        Dealership.address = address;
+    }
+
+    public static String getPhone() {
+        return phone;
+    }
+
+    public static void setPhone(String phone) {
+        Dealership.phone = phone;
     }
 
     public static List<Vehicle> getVehiclesByPrice(double min, double max){
