@@ -1,17 +1,20 @@
 package com.pluralsight;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
-    Scanner s = new Scanner(System.in);
+    static Scanner s = new Scanner(System.in);
     Dealership dealership;
 
     public UserInterface() {
 
     }
 
-    private void displayVehicles(Dealership dealership){
-        
+    private void displayVehicles(List<Vehicle> vehicleList){
+        for(Vehicle v : vehicleList){
+            System.out.println(v);
+        }
     }
 
     private void init() {
@@ -21,20 +24,19 @@ public class UserInterface {
     public void display(){
         init();
         System.out.println("What do you want to do?");
-        System.out.println("Please select options below : \n" +
-            "1 - Find vehicles within price range \n" +
-            "2 - Find vehicles by make / model \n" +
-            "3 - Find vehicles by year range \n" +
-            "4 - Find vehicles by color \n" +
-            "5 - Find vehicles by mileage range \n" +
-            "6 - Find vehicles by type(car, truck, SUV, van) \n" +
-            "7 - List all vehicles \n" +
-            "8 - Add a vehicle \n" +
-            "9 - Remove a vehicle \n" +
-            "99 - Quit \n"
-        );
 
-        String choice = s.nextLine();
+        String choice = strAns("Please select options below : \n" +
+                "1 - Find vehicles within price range \n" +
+                "2 - Find vehicles by make / model \n" +
+                "3 - Find vehicles by year range \n" +
+                "4 - Find vehicles by color \n" +
+                "5 - Find vehicles by mileage range \n" +
+                "6 - Find vehicles by type(car, truck, SUV, van) \n" +
+                "7 - List all vehicles \n" +
+                "8 - Add a vehicle \n" +
+                "9 - Remove a vehicle \n" +
+                "99 - Quit \n" +
+                "Enter: ");
 
         switch(choice) {
             case "1":
@@ -72,7 +74,12 @@ public class UserInterface {
     }
 
     public void processGetByPriceRequest (){
+        System.out.println("Please enter the information below to continue with your price range request.\n");
+        double min = Double.parseDouble(strAns("What is your minimum price for a vehicle?\n"));
+        double max = Double.parseDouble(strAns("What is your maximum price range for a vehicle?\n"));
 
+        List<Vehicle> vehicleList = dealership.getVehiclesByPrice(min, max);
+        displayVehicles(vehicleList);
     }
 
     public void processGetByMakeModelRequest (){
@@ -105,6 +112,11 @@ public class UserInterface {
 
     public void processRemoveVehicleRequest(){
 
+    }
+
+    public static String strAns(String message){
+        System.out.println(message);
+        return s.nextLine();
     }
 
 
