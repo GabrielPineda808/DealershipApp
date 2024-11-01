@@ -36,7 +36,7 @@ public class DealershipFileManager {
             bw.write(dealership.getName() + "|"+ dealership.getAddress() +"|"+ dealership.getPhone()+"\n");
 
             for( Vehicle v : dealership.getInventory()){
-                bw.write(v.getVin() +"|"+ v.getYear()+"|"+v.getMake()+"|"+v.getModel()+"|"+ v.getVehicleType()+"|"+v.getColor()+"|"+v.getOdometer()+"|"+v.getPrice());
+                bw.write(v.getVin() +"|"+ v.getYear()+"|"+v.getMake()+"|"+v.getModel()+"|"+ v.getVehicleType()+"|"+v.getColor()+"|"+v.getOdometer()+"|"+v.getPrice() + "\n");
             }
             bw.close();
         } catch (IOException e) {
