@@ -8,12 +8,15 @@ public class UserInterface {
     Dealership dealership;
 
     public UserInterface() {
-
+        display();
     }
 
     private void displayVehicles(List<Vehicle> vehicleList){
+        System.out.println(dealership.getName() + "|" + dealership.getAddress() +"|" + dealership.getPhone() + '\n');
+
         for(Vehicle v : vehicleList){
-            System.out.println(v);
+
+            System.out.println(v.getVin() +"|"+ v.getYear()+"|"+v.getMake()+"|"+v.getModel()+"|"+ v.getVehicleType()+"|"+v.getColor()+"|"+v.getOdometer()+"|"+v.getPrice());
         }
     }
 
@@ -23,7 +26,7 @@ public class UserInterface {
 
     public void display(){
         init();
-        System.out.println("What do you want to do?");
+        System.out.println("\nWelcome!");
 
         String choice = strAns("Please select options below : \n" +
                 "1 - Find vehicles within price range \n" +
@@ -132,35 +135,35 @@ public class UserInterface {
 
     public void processAddVehicleRequest (){
 
-        int vin = Integer.parseInt(strAns("What is the vehicle's vin number? \n"));
+        int vin = Integer.parseInt(strAns("What is the vehicle's vin number? "));
 
-        int year = Integer.parseInt(strAns("What is the vehicle's year? \n"));
+        int year = Integer.parseInt(strAns("What is the vehicle's year? "));
 
-        String make = strAns("What is the vehicle's make?\n");
+        String make = strAns("What is the vehicle's make?");
 
-        String model = strAns("What is the vehicle's model?\n");
+        String model = strAns("What is the vehicle's model?");
 
-        String vehicleType = strAns("What is the vehicle's type?\n");
+        String vehicleType = strAns("What is the vehicle's type?");
 
-        String color = strAns("What is the vehicle's color?\n");
+        String color = strAns("What is the vehicle's color?");
 
-        int odometer = Integer.parseInt(strAns("What is the vehicle's odometer mileage?\n"));
+        int odometer = Integer.parseInt(strAns("What is the vehicle's odometer mileage?"));
 
-        double price = Double.parseDouble(strAns("What is the vehicle's price? \n"));
+        double price = Double.parseDouble(strAns("What is the vehicle's price? "));
 
         Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
 
         this.dealership.addVehicle(vehicle);
 
         DealershipFileManager.saveDealership(this.dealership);
+
+        displayVehicles(this.dealership.getInventory());
     }
 
     public void processRemoveVehicleRequest(){
         int vin = Integer.parseInt(strAns("What is the vin of the vehicle you would like to remove?\n"));
 
         dealership.removeVehicle(vin);
-
-        displayVehicles(this.dealership.getInventory());
 
         DealershipFileManager.saveDealership(this.dealership);
     }
