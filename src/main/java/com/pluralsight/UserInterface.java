@@ -132,6 +132,27 @@ public class UserInterface {
 
     public void processAddVehicleRequest (){
 
+        int vin = Integer.parseInt(strAns("What is the vehicle's vin number? \n"));
+
+        int year = Integer.parseInt(strAns("What is the vehicle's year? \n"));
+
+        String make = strAns("What is the vehicle's make?\n");
+
+        String model = strAns("What is the vehicle's model?\n");
+
+        String vehicleType = strAns("What is the vehicle's type?\n");
+
+        String color = strAns("What is the vehicle's color?\n");
+
+        int odometer = Integer.parseInt(strAns("What is the vehicle's odometer mileage?\n"));
+
+        double price = Double.parseDouble(strAns("What is the vehicle's price? \n"));
+
+        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+
+        this.dealership.addVehicle(vehicle);
+        
+        DealershipFileManager.saveDealership(this.dealership);
     }
 
     public void processRemoveVehicleRequest(){
