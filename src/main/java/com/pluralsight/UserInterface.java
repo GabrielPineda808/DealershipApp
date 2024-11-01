@@ -83,7 +83,12 @@ public class UserInterface {
     }
 
     public void processGetByMakeModelRequest (){
+        System.out.println("Please enter the information below to continue with your make and model request.\n");
+        String make = strAns("What the make of the vehicle you are looking for?\n");
+        String model = strAns("What the model of the vehicle you are looking for?\n");
 
+        List<Vehicle> vehicleList = dealership.getVehiclesByMakeModel(make, model);
+        displayVehicles(vehicleList);
     }
 
     public static void processGetByYearRequest (){
