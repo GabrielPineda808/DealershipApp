@@ -109,7 +109,12 @@ public class UserInterface {
     }
 
     public void processGetByMileageRequest (){
+        System.out.println("Please enter the information below to continue with your mileage range request.\n");
+        int min = Integer.parseInt(strAns("What is your minimum mileage for a vehicle?\n"));
+        int max = Integer.parseInt(strAns("What is your maximum mileage for a vehicle?\n"));
 
+        List<Vehicle> vehicleList = dealership.getVehiclesByMileage(min, max);
+        displayVehicles(vehicleList);
     }
 
     public void processGetByVehicleTypeRequest (){
