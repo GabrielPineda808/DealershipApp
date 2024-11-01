@@ -126,7 +126,8 @@ public class UserInterface {
     }
 
     public void processGetAllVehiclesRequest (){
-
+        List<Vehicle> vehicleList = dealership.getAllVehicles();
+        displayVehicles(vehicleList);
     }
 
     public void processAddVehicleRequest (){
