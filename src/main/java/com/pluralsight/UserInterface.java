@@ -151,12 +151,18 @@ public class UserInterface {
         Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
 
         this.dealership.addVehicle(vehicle);
-        
+
         DealershipFileManager.saveDealership(this.dealership);
     }
 
     public void processRemoveVehicleRequest(){
+        int vin = Integer.parseInt(strAns("What is the vin of the vehicle you would like to remove?\n"));
 
+        dealership.removeVehicle(vin);
+
+        displayVehicles(this.dealership.getInventory());
+        
+        DealershipFileManager.saveDealership(this.dealership);
     }
 
     public static String strAns(String message){
