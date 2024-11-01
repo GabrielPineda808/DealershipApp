@@ -91,8 +91,13 @@ public class UserInterface {
         displayVehicles(vehicleList);
     }
 
-    public static void processGetByYearRequest (){
+    public void processGetByYearRequest (){
+        System.out.println("Please enter the information below to continue with your year range request.\n");
+        int min = Integer.parseInt(strAns("What is your minimum year for a vehicle?\n"));
+        int max = Integer.parseInt(strAns("What is your maximum year for a vehicle?\n"));
 
+        List<Vehicle> vehicleList = dealership.getVehiclesByYear(min, max);
+        displayVehicles(vehicleList);
     }
 
     public void processGetByColorRequest (){
@@ -121,7 +126,7 @@ public class UserInterface {
 
     public static String strAns(String message){
         System.out.println(message);
-        return s.nextLine();
+        return s.nextLine().trim();
     }
 
 
