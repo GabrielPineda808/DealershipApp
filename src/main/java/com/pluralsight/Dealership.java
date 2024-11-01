@@ -45,7 +45,13 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehiclesByPrice(double min, double max){
-        return null;
+        List<Vehicle> vehicleList = new ArrayList<>();
+        for(Vehicle v: inventory) {
+            if(v.getPrice() > min && v.getPrice() < max) {
+                vehicleList.add(v);
+            }
+        }
+        return vehicleList;
     }
 
     public List<Vehicle> getVehiclesByMakeModel(String make, String model){
@@ -76,7 +82,7 @@ public class Dealership {
        inventory.add(vehicle);
     }
 
-    public void removeVehicle(Vehicle vehicle){
+    public void removeVehicle(int vin){
 
     }
 

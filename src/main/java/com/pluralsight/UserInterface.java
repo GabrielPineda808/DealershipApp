@@ -161,7 +161,7 @@ public class UserInterface {
         dealership.removeVehicle(vin);
 
         displayVehicles(this.dealership.getInventory());
-        
+
         DealershipFileManager.saveDealership(this.dealership);
     }
 
