@@ -101,7 +101,11 @@ public class UserInterface {
     }
 
     public void processGetByColorRequest (){
+        System.out.println("Please enter the information below to continue with your color request.\n");
+        String color = strAns("What the make of the vehicle you are looking for?\n");
 
+        List<Vehicle> vehicleList = dealership.getVehiclesByColor(color);
+        displayVehicles(vehicleList);
     }
 
     public void processGetByMileageRequest (){
